@@ -1,0 +1,47 @@
+##############
+# Base Setting
+##############
+server:
+  port: 8080
+################
+# Spring Setting
+################
+spring:
+  freemarker:
+    cache: false
+    requestContextAttribute: request
+  quartz:
+    jobStoreType: memory
+    startupDelay: 1s
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/springboot-kotlin-examples?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    username: root
+  redis:
+    host: 127.0.0.1
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/springboot-kotlin-examples
+#################
+# Mybatis Setting
+#################
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+  typeAliasesPackage: com.twsihan.examples.entities
+  mapperLocations: classpath:mappers/*.xml
+################
+# Mapper Setting
+################
+mapper:
+  mappers:
+    - com.twsihan.examples.components.base.BaseMapper
+  notEmpty: false
+  identity: MYSQL
+####################
+# PageHelper Setting
+####################
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
